@@ -19,4 +19,6 @@ RUN cp .env.example .env
 
 EXPOSE 80
 
+COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 CMD ["/usr/bin/supervisord"]
