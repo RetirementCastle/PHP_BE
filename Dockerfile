@@ -1,4 +1,4 @@
-FROM wyveo/nginx-php-fpm:php71
+FROM joselfonsecadt/nginx-php7.0:latest
 
 MAINTAINER Elmar Santofimio <esantofimios@unal.edu.co>
 
@@ -18,4 +18,6 @@ RUN composer dump-autoload --optimize && \
 RUN cp .env.example .env
 
 EXPOSE 80
+
+CMD ["/usr/bin/supervisord"]
 
