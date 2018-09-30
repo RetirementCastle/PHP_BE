@@ -1,0 +1,26 @@
+version: '2'
+services:
+  nginx:
+    image: nginx:1.15.4
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/html
+    ports:
+      - 8080:80
+    links:
+      - php
+  php:
+    image: joselfonsecadt/php7.1:latest
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php/www.conf:/etc/php/7.0/fpm/pool.d/www.conf
+    links:
+      - mysql
+  mysql:
+    image: mysql:5.7.20
+    environment:
+        MYSQL_ROOT_PASSWORD: admin123
+    volumes:
+      - ./docker/mysql/data/:/var/lib/mysql
+    ports:
+      - 33060:3306
