@@ -1,4 +1,4 @@
-FROM pasientskyhosting/nginx-php-fpm
+FROM travelshift/ubuntu-nginx-php7.1:latest
 
 MAINTAINER Elmar Santofimio <esantofimios@unal.edu.co>
 
