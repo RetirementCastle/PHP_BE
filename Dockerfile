@@ -12,10 +12,6 @@ RUN composer install --no-scripts --no-autoloader
 
 COPY . /var/www/html/
 
-RUN chown -R www-data:www-data /var/www
-
-RUN chmod 755 /var/www
-
 RUN composer dump-autoload --optimize && \
 	php artisan optimize
 
