@@ -1,4 +1,4 @@
-FROM joselfonsecadt/nginx-php7.0:latest
+FROM pasientskyhosting/nginx-php-fpm
 
 MAINTAINER Elmar Santofimio <esantofimios@unal.edu.co>
 
@@ -19,5 +19,4 @@ RUN cp .env.example .env
 
 EXPOSE 80
 
-CMD ["/usr/bin/supervisord"]
 
