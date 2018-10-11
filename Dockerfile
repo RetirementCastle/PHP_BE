@@ -17,6 +17,8 @@ RUN composer dump-autoload --optimize && \
 
 RUN cp .env.example .env
 
+RUN sudo chmod 777 -R /var/www/html/storage/logs/laravel.log
+
 EXPOSE 80
 
 

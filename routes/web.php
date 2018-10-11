@@ -20,6 +20,8 @@ Route::get('test', function() {
 			'status' => 'online',
 			'date' => Carbon\Carbon::now()
 	]);*/
-	$users = DB::table('users')->get();
-	print($users);
+	$transactions = DB::table('transaction')->get();
+	print($transactions);
 });
+
+Route::resource('transaction', 'TransactionController');
