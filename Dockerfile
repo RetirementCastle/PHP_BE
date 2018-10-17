@@ -17,6 +17,10 @@ RUN composer dump-autoload --optimize && \
 
 RUN cp .env.example .env
 
+RUN sudo chmod 777 -R storage/
+
+RUN sudo php artisan config:cache
+
 EXPOSE 80
 
 

@@ -15,13 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test', function() {
-	/*return response()->json([
-			'status' => 'online',
-			'date' => Carbon\Carbon::now()
-	]);*/
-	$transactions = DB::table('transaction')->get();
-	print($transactions);
-});
 
-Route::resource('transaction', 'TransactionController');
+Route::resource('transaction', 'TransactionController', ['except' => [
+ 'destroy'
+]]);
+
+
+Route::resource('transactiontype', 'TransactionTypeController', ['except' => [
+ 'destroy'
+]]);

@@ -3,6 +3,7 @@
 namespace retirementcastle\Http\Controllers;
 
 use retirementcastle\Transaction;
+use retirementcastle\TransactionDetail;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -43,19 +44,26 @@ class TransactionController extends Controller
             $data = $request->json()->all();
 
             $transaction = Transaction::create([
-                'id' => $data['id'],
                 'type_transation_id' => $data['type_transation_id'],
                 'total_amount' => $data['total_amount'],
                 'observation' => $data['observation'],
                 'balance' => $data['balance'],
-                'contact_name' => $data['contact_name'],
-                'date' => $data['date'],
-                'hour' => $data['hour'],
+                'contact_name' => $data['contact_name'] 
             ]);
 
+            foreach ($data['transactiondetails'] as $key => $transactiondetaildata$
 
-            return response()->json($transaction,201);
+            $transactiondetail = TransactionDetail::create([
+                'transaction_id' => $transaction->id,
+                'quantity' => $transactiondetaildata['quantity'],
+                'subtotal' => $transactiondetaildata['subtotal'],
+            ]);
+            }
+
+
+            return response()->json($data,201);
         }
+
 
             return response()->json(['error' =>'Unathorized'],500);
 //            $transaction = Transaction::create($request->all());
