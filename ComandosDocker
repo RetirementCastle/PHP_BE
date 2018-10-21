@@ -1,4 +1,7 @@
-sudo docker run -d -p 8000:80 esantofimios/php_be
+
 sudo docker build -t esantofimios/php_be:latest .
-sudo docker pull esantofimios/php_be
 sudo docker exec -i -t 29926d5eaba3 /bin/bash
+
+Para utilizar la imagen
+sudo docker pull esantofimios/php_besudo docker run -d -p 8000:80 esantofimios/php_be
+
