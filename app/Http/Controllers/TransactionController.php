@@ -16,9 +16,15 @@ class TransactionController extends Controller
     public function index()
     {
         //
+        
         $transaction= Transaction::all();
-        return response()->json($transaction,200);
+        return response()->json([
+         'results' => $transaction
+        ]);
+       // return response()->json($transaction,200);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,7 +57,7 @@ class TransactionController extends Controller
                 'contact_name' => $data['contact_name'] 
             ]);
 
-            foreach ($data['transactiondetails'] as $key => $transactiondetaildata$
+            foreach ($data['transactiondetails'] as $key => $transactiondetaildata){
 
             $transactiondetail = TransactionDetail::create([
                 'transaction_id' => $transaction->id,
@@ -59,6 +65,7 @@ class TransactionController extends Controller
                 'subtotal' => $transactiondetaildata['subtotal'],
             ]);
             }
+
 
 
             return response()->json($data,201);

@@ -1,0 +1,218 @@
+swagger: '2.0'
+info:
+  description: defaultDescription
+  version: '0.1'
+  title: defaultTitle
+paths:
+  /transaction/2:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Model2'
+    put:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/Model0'
+          x-examples:
+            application/json: |2-
+
+                      {
+                          
+                          "type_transation_id": 1,
+                          "total_amount": 1,
+                          "observation": "Esto es una prueba",
+                          "balance": 1,
+                          "contact_name": "Siii la segunda"
+                      }
+      responses:
+        '201':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Model3'
+  /transaction:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Model5'
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/Model1'
+          x-examples:
+            application/json: |-
+              {
+                          "type_transation_id":1,
+                          "total_amount": 1,
+                          "observation": "hola",
+                          "balance": 1,
+                          "contact_name": "Yo",
+                          "transactiondetails":[
+                                  {
+                                  "quantity":1,
+                                  "subtotal":1                    
+                                  },
+                                  {
+                                  "quantity":1,
+                                  "subtotal":1                    
+                                  }
+                              ]
+                      }
+      responses:
+        '201':
+          description: Definition generated from Swagger Inspector
+          schema:
+            $ref: '#/definitions/Model4'
+definitions:
+  Model0:
+    properties:
+      type_transation_id:
+        type: integer
+        format: int32
+      total_amount:
+        type: integer
+        format: int32
+      observation:
+        type: string
+      balance:
+        type: integer
+        format: int32
+      contact_name:
+        type: string
+  Transactiondetails:
+    properties:
+      quantity:
+        type: integer
+        format: int32
+      subtotal:
+        type: integer
+        format: int32
+  Model1:
+    properties:
+      type_transation_id:
+        type: integer
+        format: int32
+      total_amount:
+        type: integer
+        format: int32
+      observation:
+        type: string
+      balance:
+        type: integer
+        format: int32
+      contact_name:
+        type: string
+      transactiondetails:
+        type: array
+        items:
+          $ref: '#/definitions/Transactiondetails'
+  Model2:
+    properties:
+      id:
+        type: integer
+        format: int32
+      type_transation_id:
+        type: integer
+        format: int32
+      total_amount:
+        type: integer
+        format: int32
+      observation:
+        type: string
+      balance:
+        type: integer
+        format: int32
+      contact_name:
+        type: string
+  Model3:
+    properties:
+      id:
+        type: integer
+        format: int32
+      type_transation_id:
+        type: integer
+        format: int32
+      total_amount:
+        type: integer
+        format: int32
+      observation:
+        type: string
+      balance:
+        type: integer
+        format: int32
+      contact_name:
+        type: string
+  Model4_Transactiondetails:
+    properties:
+      quantity:
+        type: integer
+        format: int32
+      subtotal:
+        type: integer
+        format: int32
+  Model4:
+    properties:
+      type_transation_id:
+        type: integer
+        format: int32
+      total_amount:
+        type: integer
+        format: int32
+      observation:
+        type: string
+      balance:
+        type: integer
+        format: int32
+      contact_name:
+        type: string
+      transactiondetails:
+        type: array
+        items:
+          $ref: '#/definitions/Model4_Transactiondetails'
+  Results:
+    properties:
+      id:
+        type: integer
+        format: int32
+      type_transation_id:
+        type: integer
+        format: int32
+      total_amount:
+        type: integer
+        format: int32
+      observation:
+        type: string
+      balance:
+        type: integer
+        format: int32
+      contact_name:
+        type: string
+  Model5:
+    properties:
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/Results'
