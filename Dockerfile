@@ -21,6 +21,6 @@ RUN sudo chmod 777 -R storage/
 
 RUN sudo php artisan config:cache
 
-EXPOSE 443
+EXPOSE 80
 
 
