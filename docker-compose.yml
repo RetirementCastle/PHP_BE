@@ -18,8 +18,12 @@ services:
       - mysql
   mysql:
     image: mysql:5.7.20
-    environment:
-        MYSQL_ROOT_PASSWORD: admin123
+    environment: 
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: arquisoft
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: transactions
+      MYSQL_HOST: transactions-db
     volumes:
       - ./docker/mysql/data/:/var/lib/mysql
     ports:
