@@ -23,7 +23,6 @@ services:
       MYSQL_USER: arquisoft
       MYSQL_PASSWORD: 123
       MYSQL_DATABASE: transactions
-      MYSQL_HOST: transactions-db
     volumes:
       - ./docker/mysql/data/:/var/lib/mysql
     ports:
